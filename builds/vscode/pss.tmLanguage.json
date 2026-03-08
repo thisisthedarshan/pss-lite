@@ -1,0 +1,107 @@
+{
+    "name": "Portable Test and Stimulus Standard",
+    "scopeName": "source.pss",
+    "fileTypes": [
+        "pss"
+    ],
+    "patterns": [
+        {
+            "name": "keyword.control.pss",
+            "match": "\\b(if|else|for|foreach|while|do|repeat|replicate|return|break|continue|match|schedule|parallel|sequence|select|yield)\\b"
+        },
+        {
+            "name": "keyword.other.pss",
+            "match": "\\b(abstract|action|activity|as|at_least|auto_bin_max|bind|bins|buffer|class|comp|compile|component|const|constraint|covergroup|coverpoint|cross|declaration|default|dist|dynamic|exec|export|extend|file|forall|function|goal|header|iff|ignore_bins|illegal_bins|implies|import|in|init|init_down|init_up|initial|inout|input|inside|instance|lock|machine|open|option|output|override|package|per_instance|pool|post_solve|pre_solve|private|protected|public|pure|rand|ref|resource|run|run_end|run_start|share|soft|solve|state|static|stream|struct|super|target|template|this|type_option|typedef|unique|var|virtual|weight|with)\\b"
+        },
+        {
+            "name": "support.type.pss",
+            "match": "\\b(array|bit|bool|chandle|enum|float|float32|float64|int|list|map|set|string|type|void)\\b"
+        },
+        {
+            "name": "entity.name.type.pss",
+            "match": "\\b(std_pkg|addr_reg_pkg|executor_pkg|format_pkg|core_pkg|addr_space_c|transparent_addr_space_c|contiguous_addr_space_c|addr_region_s|transparent_addr_region_s|addr_claim_s|transparent_addr_claim_s|sized_addr_handle_s|reg_c|reg_group_c|reg_file_c|addr_handle_t|addr_claim_base_s|executor_base_c|node_s|sizeof_s|reg_access|executor_trait_s|empty_executor_trait_s|executor_c|executor_group_c|executor_claim_s|TRAIT|endianness_e|packed_s|message_verbosity_e|file_handle_t|file_option_e|float_base_s|float32_s|float64_s)\\b"
+        },
+        {
+            "name": "entity.name.function.pss",
+            "match": "\\b(size|clear|delete|insert|push_back|push_front|pop_back|pop_front|to_string|format|print|add_allocatable_region|add_non_allocatable_region|allocate|free|get_offset|set_offset|read|read8|read16|read32|read64|write|write8|write16|write32|write64|read_val|write_val|read_struct|write_struct|make_handle_from_claim|make_handle_from_handle|addr_value|addr_value_solve|addr_value_abs|get_tag|read_bytes|write_bytes|write_masked|write_val_masked|write_field|write_fields|get_offset_of_instance|get_offset_of_instance_array|get_offset_of_path|set_handle|add_executor|executor|message|error|fatal|file_open|file_close|file_exists|file_write|file_read|file_write_lines|file_read_lines|urandom|urandom_range|log|log10|exp|sqrt|pow|round|floor|ceil|sin|cos|tan|asin|acos|atan|atan2|hypot|sinh|cosh|tanh|asinh|acosh|atanh|float_mantissa|float_exponent|float_sign|to_float|len|substr|compare|sum|min|max|unique|find|find_first|find_index|find_first_index|exists|exists_index|shuffle|reverse|sort|keys|values|name|sample|get_coverage|get_inst_coverage|set_inst_name)\\b"
+        },
+        {
+            "name": "constant.language.pss",
+            "match": "\\b(true|false|null|READWRITE|READONLY|WRITEONLY|nbytes|LITTLE_ENDIAN|BIG_ENDIAN|NONE|LOW|MEDIUM|HIGH|FULL|nullfilehandle|TRUNCATE|APPEND|READ|nbits)\\b"
+        },
+        {
+            "name": "keyword.operator.pss",
+            "match": "(==|!=|<=|>=|&&|\\|\\||>>|<<|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=|::|->|=>|\\.\\.|\\*\\*|<<<|>>>|\\+|-|\\*|/|%|<|>|!|&|\\||\\^|~|\\?|:|=)"
+        },
+        {
+            "name": "constant.numeric.pss",
+            "match": "(?<!\\w)[+-]?0[xX][0-9a-fA-F]+\\b"
+        },
+        {
+            "name": "constant.numeric.pss",
+            "match": "(?<!\\w)[+-]?0[bB][01]+\\b"
+        },
+        {
+            "name": "constant.numeric.pss",
+            "match": "(?<!\\w)[+-]?0[oO]?[0-7]+\\b"
+        },
+        {
+            "name": "constant.numeric.pss",
+            "match": "(?<!\\w)[+-]?\\d+\\b"
+        },
+        {
+            "name": "comment.line.pss",
+            "match": "//.*"
+        },
+        {
+            "name": "comment.block.pss",
+            "begin": "/\\*",
+            "end": "\\*/"
+        },
+        {
+            "name": "string.quoted.double.pss",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.pss"
+                }
+            ]
+        },
+        {
+            "name": "string.quoted.triple.pss",
+            "begin": "C\\s*=\\s*\"\"\"",
+            "end": "\"\"\"",
+            "patterns": [
+                {
+                    "include": "source.c",
+                    "contentName": "meta.embedded.block.c"
+                }
+            ]
+        },
+        {
+            "name": "string.quoted.triple.pss",
+            "begin": "SV\\s*=\\s*\"\"\"",
+            "end": "\"\"\"",
+            "patterns": [
+                {
+                    "include": "source.sv",
+                    "contentName": "meta.embedded.block.sv"
+                }
+            ]
+        },
+        {
+            "name": "string.quoted.triple.pss",
+            "begin": "\"\"\"",
+            "end": "\"\"\"",
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.pss"
+                }
+            ]
+        }
+    ],
+    "repository": {}
+}
